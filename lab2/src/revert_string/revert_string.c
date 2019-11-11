@@ -12,4 +12,3 @@ void RevertString(char *str)
         *(str + i) ^= *(str + j);
     }
 }
-

@@ -1,0 +1,12 @@
+gcc -c revert_string.c -o revert_string.o
+ar rc libMY_STATIC.a revert_string.o
+gcc main.c libMY_STATIC.a -o new.out
+
+echo $LD_LIBRARY_PATH
+LD_LIBRARY_PATH=/projects/os_lab_2019/lab2/src/revert_string
+
+gcc -fPIC -c main.c -o main.o
+gcc -c -fPIC revert_string.c -o dynamic_revert_string.o
+gcc -shared dynamic_revert_string.o -o lib_dynamic.so
+gcc revert_string/main.o -L revert_string -l_dynamic -o dnew
+export LD_LIBRARY_PATH=revert_string ./revert_string/dnew

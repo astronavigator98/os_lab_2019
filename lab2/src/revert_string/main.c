@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
 {
 	if (argc != 2)
 	{
-		printf("Usage: %s string_to_revert\n", "easybr");
+		printf("Usage: %s string_to_revert\n", argv[0]);
 		return -1;
 	}
 
