@@ -12,6 +12,10 @@ utils.o : utils.h
 
 find_min_max.o : utils.h find_min_max.h
 	$(CC) -o find_min_max.o -c find_min_max.c $(CFLAGS)
-
+	
+sequential_exec : sequential_min_max
+	$(CC) -o sequential_exec sequential_exec.c $(CFLAGS)
+	
+all : sequential_min_max parallel_min_max sequential_exec
 clean :
-	rm utils.o find_min_max.o sequential_min_max parallel_min_max
+	rm utils.o find_min_max.o sequential_min_max parallel_min_max sequential_exec
